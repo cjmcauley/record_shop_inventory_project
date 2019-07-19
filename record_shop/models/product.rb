@@ -11,8 +11,8 @@ class Product
     @artist = options['artist']
     @title = options['title']
     @quantity = options['quantity'].to_i
-    @cost_price = options['cost_price'].to_i
-    @retail_price = options['retail_price'].to_i
+    @cost_price = options['cost_price'].to_f
+    @retail_price = options['retail_price'].to_f
     @img_url = options['img_url']
     @record_label_id = options['record_label_id'].to_i
     @year_id = options['year_id'].to_i
