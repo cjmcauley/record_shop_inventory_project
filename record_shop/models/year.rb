@@ -6,7 +6,18 @@ class Year
 
   def initialize(options)
     @id = options['id'].to_i if options['id']
-    @name = options['year'].to_i
+    @year = options['year'].to_i
+  end
+
+  def save
+    sql = '
+    INSERT INTO years
+    (year)
+    VALUES ($1)
+    RETURNING ID'
+    values = [@year]
+    result = SqlRunner.run(sql, values)
+    @id = result.first['id'].to_i
   end
 
   def self.delete_all

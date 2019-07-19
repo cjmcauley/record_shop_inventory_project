@@ -11,12 +11,23 @@ class Product
     @artist = options['artist']
     @title = options['title']
     @quantity = options['quantity'].to_i
-    @cost_price = options['cost_price'].to_f
-    @retail_price = options['retail_price'].to_f
+    @cost_price = options['cost_price'].to_i
+    @retail_price = options['retail_price'].to_i
     @img_url = options['img_url']
     @record_label_id = options['record_label_id'].to_i
     @year_id = options['year_id'].to_i
     @format_id = options['format_id'].to_i
+  end
+
+  def save
+    sql = '
+    INSERT INTO products
+    (artist, title, quantity, cost_price, retail_price, img_url, record_label_id, year_id, format_id)
+    VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9)
+    RETURNING ID'
+    values = [@artist, @title, @quantity, @cost_price, @retail_price, @img_url, @record_label_id, @year_id, @format_id]
+    result = SqlRunner.run(sql, values)
+    @id = result.first['id'].to_i
   end
 
   def self.delete_all
