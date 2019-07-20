@@ -4,7 +4,8 @@ require_relative 'year'
 require_relative 'record_label'
 
 class Product
-  attr_reader :id, :artist, :title, :quantity, :cost_price, :retail_price, :img_url, :record_label_id, :year_id, :format_id
+  attr_reader :id
+  attr_accessor :artist, :title, :quantity, :cost_price, :retail_price, :img_url, :record_label_id, :year_id, :format_id
 
   def initialize(options)
     @id = options['id'].to_i if options['id']
@@ -28,6 +29,23 @@ class Product
     values = [@artist, @title, @quantity, @cost_price, @retail_price, @img_url, @record_label_id, @year_id, @format_id]
     result = SqlRunner.run(sql, values)
     @id = result.first['id'].to_i
+  end
+
+  def update()
+    sql = "UPDATE products
+    SET
+    (artist, title, quantity, cost_price, retail_price, img_url, record_label_id, year_id, format_id) =
+    ( $1, $2, $3, $4, $5, $6, $7, $8, $9 )
+    WHERE id = $10"
+    values = [@artist, @title, @quantity, @cost_price, @retail_price, @img_url, @record_label_id, @year_id, @format_id, @id]
+    SqlRunner.run( sql, values )
+  end
+
+  def self.delete( id )
+    sql = "DELETE FROM products
+    WHERE id = $1"
+    values = [id]
+    SqlRunner.run( sql, values )
   end
 
   def self.delete_all
