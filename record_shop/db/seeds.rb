@@ -35,6 +35,11 @@ vinyl = Format.new(
 )
 vinyl.save
 
+compactdisc = Format.new(
+  'type' => 'CD'
+)
+compactdisc.save
+
 groove_denied = Product.new(
   'artist' => 'Stephen Malkmus',
   'title' => 'Groove Denied',
