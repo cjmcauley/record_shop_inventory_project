@@ -7,7 +7,9 @@
       <th>Format</th>
       <th>Cost Price</th>
       <th>Retail Price</th>
+      <th>Mark Up</th>
       <th>Quantity</th>
+      <th></th>
   </tr>
     <% @products.each do |product| %>
         <tr>
@@ -18,7 +20,15 @@
           <td><%= product.format.type %></td>
           <td><%= product.cost_price %></td>
           <td><%= product.retail_price %></td>
+          <td><%= (((product.retail_price) - (product.cost_price)) / (product.cost_price) * 100).round(2) %>%</td>
           <td><%= product.quantity %></td>
+          <td><% if product.quantity.nil? %>
+            out of stock
+            <% elsif product.quantity <= 5 %>
+            low stock
+            <% else %>
+            <% end %>
+           </td>
         </tr>
     <% end %>
 </table>
