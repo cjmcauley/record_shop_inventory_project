@@ -41,6 +41,12 @@ class Product
     SqlRunner.run( sql, values )
   end
 
+  def self.all
+    sql = 'SELECT * FROM products'
+    result = SqlRunner.run(sql)
+    results = result.map { |product| Product.new(product) }
+  end
+
   def self.delete( id )
     sql = "DELETE FROM products
     WHERE id = $1"
