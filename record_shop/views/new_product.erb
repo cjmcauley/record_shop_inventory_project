@@ -1,0 +1,39 @@
+<form action="/products" method="post">
+  <label for="artist">Artist</label>
+  <input id="artist" type="text" name="artist">
+  <br>
+  <label for="title">Title</label>
+  <input id="title" type="text" name="title">
+<br>
+  <select id="record-label" name="record_label_id">
+    <option selected disabled>Choose Record Label</option>
+    <% @record_labels.each do |label| %>
+      <option value="<%= label.id %>"><%= label.name %></option>
+    <% end %>
+  </select>
+  <br>
+  <select id="year" name="year_id">
+    <option selected disabled>Choose Year of Release</option>
+    <% @years.each do |year| %>
+      <option value="<%= year.id %>"><%= year.year %></option>
+    <% end %>
+  </select>
+  <br>
+  <select id="format" name="format_id">
+    <option selected disabled>Choose Format</option>
+    <% @formats.each do |format| %>
+      <option value="<%= format.id %>"><%= format.type %></option>
+    <% end %>
+  </select>
+  <br>
+  <label for="cost-price">Cost Price</label>
+  <input id="cost-price" type="number" name="cost_price" min="0">
+  <br>
+  <label for="retail-price">Retail Price</label>
+  <input id="retail-price" type="number" name="retail_price" min="0">
+  <br>
+  <label for="quantity">Quantity</label>
+  <input id="quantity" type="number" name="quantity" min="0">
+  <br>
+  <input type="submit" value="Add Product">
+</form>

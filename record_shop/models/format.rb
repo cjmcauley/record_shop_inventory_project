@@ -30,6 +30,13 @@ class Format
     SqlRunner.run( sql, values )
   end
 
+  def self.all()
+    sql = "SELECT * FROM formats"
+    formats = SqlRunner.run( sql )
+    result = formats.map { |format| Format.new( format ) }
+    return result
+  end
+
   def self.delete( id )
     sql = "DELETE FROM formats
     WHERE id = $1"
