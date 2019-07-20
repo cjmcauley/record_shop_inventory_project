@@ -20,6 +20,13 @@ class Year
     @id = result.first['id'].to_i
   end
 
+  def self.all()
+    sql = "SELECT * FROM years"
+    years = SqlRunner.run( sql )
+    result = years.map { |year| Year.new( year ) }
+    return result
+  end
+
   def self.delete_all
     sql = 'DELETE FROM years'
     SqlRunner.run(sql)

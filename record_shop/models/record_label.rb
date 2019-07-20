@@ -30,6 +30,13 @@ class RecordLabel
     SqlRunner.run( sql, values )
   end
 
+  def self.all()
+    sql = "SELECT * FROM records"
+    records = SqlRunner.run( sql )
+    result = records.map { |record| Record.new( record ) }
+    return result
+  end
+
   def self.delete( id )
     sql = "DELETE FROM record_labels
     WHERE id = $1"
