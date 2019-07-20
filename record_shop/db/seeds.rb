@@ -15,6 +15,11 @@ domino = RecordLabel.new(
 )
 domino.save
 
+warp = RecordLabel.new(
+  'name' => 'Warp Records'
+)
+warp.save
+
 year1 = Year.new(
   'year' => 2019
 )

@@ -2,7 +2,8 @@ require_relative '../db/sql_runner'
 require_relative 'product'
 
 class RecordLabel
-  attr_reader :id, :name
+  attr_reader :id
+  attr_accessor :name
 
   def initialize(options)
     @id = options['id'].to_i if options['id']
@@ -18,6 +19,22 @@ class RecordLabel
     values = [@name]
     result = SqlRunner.run(sql, values)
     @id = result.first['id'].to_i
+  end
+
+  def update()
+    sql = "UPDATE record_labels
+    SET
+    name = $1
+    WHERE id = $2"
+    values = [@name, @id]
+    SqlRunner.run( sql, values )
+  end
+
+  def self.delete( id )
+    sql = "DELETE FROM record_labels
+    WHERE id = $1"
+    values = [id]
+    SqlRunner.run( sql, values )
   end
 
   def self.delete_all
