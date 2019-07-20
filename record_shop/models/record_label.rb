@@ -31,9 +31,9 @@ class RecordLabel
   end
 
   def self.all()
-    sql = "SELECT * FROM records"
+    sql = "SELECT * FROM record_labels"
     records = SqlRunner.run( sql )
-    result = records.map { |record| Record.new( record ) }
+    result = records.map { |record_label| RecordLabel.new( record_label ) }
     return result
   end
 

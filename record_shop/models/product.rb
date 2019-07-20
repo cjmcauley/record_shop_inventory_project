@@ -41,6 +41,30 @@ class Product
     SqlRunner.run( sql, values )
   end
 
+  def record_label
+    sql = '
+    SELECT * FROM record_labels
+    WHERE id = $1'
+    results = SqlRunner.run(sql, [@record_label_id])
+    return RecordLabel.new(results.first)
+  end
+
+  def year
+    sql = '
+    SELECT * FROM years
+    WHERE id = $1'
+    results = SqlRunner.run(sql, [@year_id])
+    return Year.new(results.first)
+  end
+
+  def format
+    sql = '
+    SELECT * FROM formats
+    WHERE id = $1'
+    results = SqlRunner.run(sql, [@format_id])
+    return Format.new(results.first)
+  end
+
   def self.all
     sql = 'SELECT * FROM products'
     result = SqlRunner.run(sql)

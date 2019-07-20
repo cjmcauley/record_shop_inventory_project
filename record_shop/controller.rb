@@ -10,3 +10,8 @@ get '/products' do
   @products = Product.all
   erb(:product)
 end
+
+get '/record_labels' do
+  @record_labels = RecordLabel.all
+  erb(:record_label)
+end
