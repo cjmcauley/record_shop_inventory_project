@@ -65,11 +65,7 @@ class Product
     return Format.new(results.first)
   end
 
-  def self.all
-    sql = 'SELECT * FROM products'
-    result = SqlRunner.run(sql)
-    results = result.map { |product| Product.new(product) }
-  end
+
 
   def self.delete( id )
     sql = "DELETE FROM products

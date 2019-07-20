@@ -22,7 +22,7 @@
           <td><%= product.retail_price %></td>
           <td><%= (((product.retail_price) - (product.cost_price)) / (product.cost_price) * 100).round(2) %>%</td>
           <td><%= product.quantity %></td>
-          <td><% if product.quantity.nil? %>
+          <td><% if product.quantity == 0 %>
             out of stock
             <% elsif product.quantity <= 5 %>
             low stock

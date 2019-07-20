@@ -16,9 +16,15 @@ get '/record_labels' do
   erb(:record_label)
 end
 
+post '/products' do
+  @product = Product.new(params)
+  @product.save
+  redirect '/products'
+end
+
 get '/products/new' do
   @record_labels = RecordLabel.all
   @years = Year.all
   @formats = Format.all
   erb(:new_product)
-end
+ end

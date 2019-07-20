@@ -1,25 +1,25 @@
-<form action="/products" method="post">
+<form action="/products" method="post" autocomplete="off">
   <label for="artist">Artist</label>
-  <input id="artist" type="text" name="artist">
+  <input id="artist" type="text" name="artist" required>
   <br>
   <label for="title">Title</label>
-  <input id="title" type="text" name="title">
+  <input id="title" type="text" name="title" required>
 <br>
-  <select id="record-label" name="record_label_id">
+  <select id="record-label" name="record_label_id" required>
     <option selected disabled>Choose Record Label</option>
     <% @record_labels.each do |label| %>
       <option value="<%= label.id %>"><%= label.name %></option>
     <% end %>
   </select>
   <br>
-  <select id="year" name="year_id">
+  <select id="year" name="year_id" required>
     <option selected disabled>Choose Year of Release</option>
     <% @years.each do |year| %>
       <option value="<%= year.id %>"><%= year.year %></option>
     <% end %>
   </select>
   <br>
-  <select id="format" name="format_id">
+  <select id="format" name="format_id" required>
     <option selected disabled>Choose Format</option>
     <% @formats.each do |format| %>
       <option value="<%= format.id %>"><%= format.type %></option>
@@ -27,13 +27,16 @@
   </select>
   <br>
   <label for="cost-price">Cost Price</label>
-  <input id="cost-price" type="number" name="cost_price" min="0">
+  <input id="cost-price" type="number" step="0.01" name="cost_price" required min="0">
   <br>
   <label for="retail-price">Retail Price</label>
-  <input id="retail-price" type="number" name="retail_price" min="0">
+  <input id="retail-price" type="number" step="0.01" name="retail_price" required min="0">
   <br>
   <label for="quantity">Quantity</label>
   <input id="quantity" type="number" name="quantity" min="0">
+  <br>
+  <label for="img-url">Album Artwork URL</label>
+  <input id="img-url" type="text" name="img_url" required>
   <br>
   <input type="submit" value="Add Product">
 </form>
