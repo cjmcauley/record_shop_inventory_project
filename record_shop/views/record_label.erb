@@ -1,7 +1,18 @@
-<% @record_labels.each do |record_label| %>
-<section>
-  <h2 class="record-label"><%= record_label.name %></h2>
-  <form action="/record-labels/<%= record_label.id %>/edit" method="get">
-    <input type="submit" value="Edit">
-  </section>
+<table class="flex-item">
+  <tr>
+    <th>Record Label</th>
+    <th></th>
+    <th></th>
+  </tr>
+  <% @record_labels.each do |record_label| %>
+  <tr>
+    <td><%= record_label.name %></td>
+    <td><form action="/record-labels/<%= record_label.id %>/edit" method="get">
+      <input type="submit" value="Edit">
+    </form></td>
+    <td><form action="/record-labels/<%= record_label.id %>/delete" method="post">
+      <input type="submit" value="Delete">
+    </form></td>
+  </tr>
   <% end %>
+</table>

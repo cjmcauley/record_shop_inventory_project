@@ -49,6 +49,18 @@ post '/record-labels' do
   @record_label.save()
   redirect '/record-labels'
 end
+#DELETE
+post '/products/:id/delete' do
+  product = Product.find(params[:id])
+  product.delete
+  redirect '/products'
+end
+#DELETE
+post '/record-labels/:id/delete' do
+  record_label = RecordLabel.find(params[:id])
+  record_label.delete
+  redirect '/record-labels'
+end
 #EDIT
  get '/products/:id/edit' do
    @record_labels = RecordLabel.all()

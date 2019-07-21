@@ -30,6 +30,13 @@ class RecordLabel
     SqlRunner.run( sql, values )
   end
 
+  def delete()
+  sql = "DELETE FROM record_labels
+  WHERE id = $1"
+  values = [@id]
+  SqlRunner.run( sql, values )
+end
+
   def self.all()
     sql = "SELECT * FROM record_labels"
     record_labels = SqlRunner.run( sql )
@@ -46,12 +53,12 @@ class RecordLabel
     return result
   end
 
-  def self.delete( id )
-    sql = "DELETE FROM record_labels
-    WHERE id = $1"
-    values = [id]
-    SqlRunner.run( sql, values )
-  end
+  # def self.delete( id )
+  #   sql = "DELETE FROM record_labels
+  #   WHERE id = $1"
+  #   values = [id]
+  #   SqlRunner.run( sql, values )
+  # end
 
   def self.delete_all
     sql = 'DELETE FROM record_labels'
