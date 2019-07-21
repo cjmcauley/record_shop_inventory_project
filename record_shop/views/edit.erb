@@ -9,23 +9,23 @@
   <br>
 
   <select id="record-label" name="record_label_id" >
-    <option selected disabled>Choose Record Label</option>
+    <option disabled>Choose Record Label</option>
     <% @record_labels.each do |label| %>
-    <option value="<%= label.id %>"><%= label.name %></option>
+    <option value="<%= label.id %>" <%="selected" if label.id == @product.record_label_id %>><%= label.name %></option>
     <% end %>
   </select><br>
 
   <select id="year" name="year_id">
     <option selected disabled>Choose Year of Release</option>
     <% @years.each do |year| %>
-    <option value="<%= year.id %>"><%= year.year %></option>
+    <option value="<%= year.id %>" <%="selected" if year.id == @product.year_id %>><%= year.year %></option>
     <% end %>
   </select><br>
 
   <select id="format" name="format_id">
     <option selected disabled>Choose Format</option>
     <% @formats.each do |format| %>
-    <option value="<%= format.id %>"><%= format.type %></option>
+    <option value="<%= format.id %>" <%="selected" if format.id == @product.format_id %>><%= format.type %></option>
     <% end %>
   </select><br>
 
