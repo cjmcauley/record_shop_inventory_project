@@ -1,0 +1,8 @@
+<form action="/record-labels/<%= @record_label.id %>" method="post" autocomplete="off">
+
+  <label for="name">Name</label>
+  <input id='name' type="text" name='name' value="<%= @record_label.name %>" required>
+  <br>
+
+  <input type="submit" value="Save Changes">
+</form>

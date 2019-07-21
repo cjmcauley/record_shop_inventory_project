@@ -12,13 +12,29 @@ get '/products' do
   erb(:product)
 end
 #INDEX
-get '/record_labels' do
+get '/record-labels' do
   @record_labels = RecordLabel.all()
   erb(:record_label)
+end
+#NEW
+get '/products/new' do
+  @record_labels = RecordLabel.all()
+  @years = Year.all()
+  @formats = Format.all()
+  erb(:new)
+end
+#NEW
+get '/record-labels/new' do
+  erb(:new_label)
 end
 #SHOW
 get '/products/:id' do
   @products = Product.find( params[:id] )
+  erb( :show )
+end
+#SHOW
+get '/record-labels/:id' do
+  @record_labels = RecordLabel.find( params[:id] )
   erb( :show )
 end
 #CREATE
@@ -27,13 +43,12 @@ post '/products' do
   @product.save()
   redirect '/products'
 end
-#NEW
-get '/products/new' do
-  @record_labels = RecordLabel.all()
-  @years = Year.all()
-  @formats = Format.all()
-  erb(:new)
- end
+#CREATE
+post '/record-labels' do
+  @record_label = RecordLabel.new(params)
+  @record_label.save()
+  redirect '/record-labels'
+end
 #EDIT
  get '/products/:id/edit' do
    @record_labels = RecordLabel.all()
@@ -42,9 +57,20 @@ get '/products/new' do
    @product = Product.find(params[:id])
    erb(:edit)
  end
+#EDIT
+ get '/record-labels/:id/edit' do
+   @record_label = RecordLabel.find(params[:id])
+   erb(:edit_label)
+ end
 #UPDATE
  post '/products/:id' do
    product = Product.new(params)
    product.update()
    redirect '/products'
+ end
+#UPDATE
+ post '/record-labels/:id' do
+   record_label = RecordLabel.new(params)
+   record_label.update()
+   redirect '/record-labels'
  end

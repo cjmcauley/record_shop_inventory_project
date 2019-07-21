@@ -32,8 +32,17 @@ class RecordLabel
 
   def self.all()
     sql = "SELECT * FROM record_labels"
-    records = SqlRunner.run( sql )
-    result = records.map { |record_label| RecordLabel.new( record_label ) }
+    record_labels = SqlRunner.run( sql )
+    result = record_labels.map { |record_label| RecordLabel.new( record_label ) }
+    return result
+  end
+
+  def self.find( id )
+    sql = 'SELECT * FROM record_labels
+    WHERE id = $1'
+    values = [id]
+    record_label = SqlRunner.run( sql, values )
+    result = RecordLabel.new( record_label.first )
     return result
   end
 

@@ -1,5 +1,7 @@
-<% @record_labels.each do |label| %>
-  <section>
-    <h2 class="record-label"><%= label.name %></h2>
+<% @record_labels.each do |record_label| %>
+<section>
+  <h2 class="record-label"><%= record_label.name %></h2>
+  <form action="/record-labels/<%= record_label.id %>/edit" method="get">
+    <input type="submit" value="Edit">
   </section>
-<% end %>
+  <% end %>
