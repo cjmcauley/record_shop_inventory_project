@@ -66,11 +66,11 @@
     end
 
     def self.find( id )
-      sql = 'SELECT * FROM products
-      WHERE id = $1'
+      sql = "SELECT * FROM products
+      WHERE id = $1"
       values = [id]
       products = SqlRunner.run( sql, values )
-      result = products.map { |product| Product.new( product ) }
+      result = Product.new( products.first ) 
       return result
     end
 
@@ -89,14 +89,6 @@
     def self.all()
       sql = "SELECT * FROM products"
       products = SqlRunner.run( sql )
-      result = products.map { |product| Product.new( product ) }
-      return result
-    end
-
-    def self.all_label( record_label_id )
-      sql = "SELECT * FROM products WHERE record_label_id = $1"
-      record_label_id = @product.record_label_id
-      products = SqlRunner.run( sql, id )
       result = products.map { |product| Product.new( product ) }
       return result
     end

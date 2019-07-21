@@ -48,8 +48,8 @@ class RecordLabel
     sql = 'SELECT * FROM record_labels
     WHERE id = $1'
     values = [id]
-    record_label = SqlRunner.run( sql, values )
-    result = RecordLabel.new( record_label.first )
+    record_labels = SqlRunner.run( sql, values )
+    result = RecordLabel.new( record_labels.first )
     return result
   end
 
@@ -57,5 +57,10 @@ class RecordLabel
     sql = 'DELETE FROM record_labels'
     SqlRunner.run(sql)
   end
+
+  def self.map_items(product_data)
+  result = product_data.map { |product| Product.new( product ) }
+  return result
+end
 
 end
