@@ -2,6 +2,7 @@ require_relative ('../models/format')
 require_relative ('../models/product')
 require_relative ('../models/record_label')
 require_relative ('../models/year')
+require_relative ('../models/genre')
 
 require('pry-byebug')
 
@@ -9,6 +10,7 @@ Product.delete_all
 Format.delete_all
 RecordLabel.delete_all
 Year.delete_all
+Genre.delete_all
 
 domino = RecordLabel.new(
   'name' => 'Domino Recording Co'
@@ -19,6 +21,11 @@ warp = RecordLabel.new(
   'name' => 'Warp Records'
 )
 warp.save
+
+indie_rock = Genre.new(
+  'name' => 'Indie Rock'
+)
+indie_rock.save
 
 # (2000..2019).each do |i|
 #   result = Year.new('year' => i.to_i).save
@@ -63,6 +70,7 @@ compactdisc.save
 groove_denied = Product.new(
   'artist' => 'Stephen Malkmus',
   'title' => 'Groove Denied',
+  'genre_id' => indie_rock.id,
   'quantity' => 5,
   'cost_price' => 6,
   'retail_price' => 11,
@@ -76,6 +84,7 @@ groove_denied.save
 you_are_free = Product.new(
   'artist' => 'Cat Power',
   'title' => 'You Are Free',
+  'genre_id' => indie_rock.id,
   'quantity' => 7,
   'cost_price' => 5,
   'retail_price' => 12,

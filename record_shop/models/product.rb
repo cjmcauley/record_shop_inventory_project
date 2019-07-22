@@ -2,15 +2,17 @@ require_relative '../db/sql_runner'
 require_relative 'format'
 require_relative 'year'
 require_relative 'record_label'
+require_relative 'genre'
 
 class Product
   attr_reader :id
-  attr_accessor :artist, :title, :quantity, :cost_price, :retail_price, :img_url, :record_label_id, :year_id, :format_id
+  attr_accessor :artist, :title, :genre_id, :quantity, :cost_price, :retail_price, :img_url, :record_label_id, :year_id, :format_id
 
   def initialize(options)
     @id = options['id'].to_i if options['id']
     @artist = options['artist']
     @title = options['title']
+    @genre_id = options['genre_id'].to_i
     @quantity = options['quantity'].to_i
     @cost_price = options['cost_price'].to_f
     @retail_price = options['retail_price'].to_f
@@ -23,10 +25,10 @@ class Product
   def save
     sql = '
     INSERT INTO products
-    (artist, title, quantity, cost_price, retail_price, img_url, record_label_id, year_id, format_id)
-    VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9)
+    (artist, title, genre_id, quantity, cost_price, retail_price, img_url, record_label_id, year_id, format_id)
+    VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10)
     RETURNING ID'
-    values = [@artist, @title, @quantity, @cost_price, @retail_price, @img_url, @record_label_id, @year_id, @format_id]
+    values = [@artist, @title, @genre_id, @quantity, @cost_price, @retail_price, @img_url, @record_label_id, @year_id, @format_id]
     result = SqlRunner.run(sql, values)
     @id = result.first['id'].to_i
   end
@@ -34,10 +36,10 @@ class Product
   def update()
     sql = "UPDATE products
     SET
-    (artist, title, quantity, cost_price, retail_price, img_url, record_label_id, year_id, format_id) =
-    ( $1, $2, $3, $4, $5, $6, $7, $8, $9 )
-    WHERE id = $10"
-    values = [@artist, @title, @quantity, @cost_price, @retail_price, @img_url, @record_label_id, @year_id, @format_id, @id]
+    (artist, title, genre_id, quantity, cost_price, retail_price, img_url, record_label_id, year_id, format_id) =
+    ( $1, $2, $3, $4, $5, $6, $7, $8, $9, $10 )
+    WHERE id = $11"
+    values = [@artist, @title, @genre_id, @quantity, @cost_price, @retail_price, @img_url, @record_label_id, @year_id, @format_id, @id]
     SqlRunner.run( sql, values )
   end
 
@@ -47,6 +49,14 @@ class Product
     WHERE id = $1'
     results = SqlRunner.run(sql, [@record_label_id])
     return RecordLabel.new(results.first)
+  end
+
+  def genre()
+    sql = '
+    SELECT * FROM genres
+    WHERE id = $1'
+    results = SqlRunner.run(sql, [@genre_id])
+    return Genre.new(results.first)
   end
 
   def year()

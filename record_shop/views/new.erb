@@ -5,6 +5,13 @@
   <label for="title">Title</label>
   <input id="title" type="text" name="title" required><br>
 
+  <select id="genre" name="genre_id" required>
+    <option selected disabled>Choose Genre</option>
+    <% @genres.each do |genre| %>
+    <option value="<%= genre.id %>"><%= genre.name %></option>
+    <% end %>
+  </select><br>
+
   <select id="record-label" name="record_label_id" required>
     <option selected disabled>Choose Record Label</option>
     <% @record_labels.each do |label| %>

@@ -8,10 +8,20 @@
   <input id="title" type="text" name="title" value="<%= @product.title %>" required>
   <br>
 
+  <select id="genre" name="genre_id" required>
+    <option selected disabled>Choose Genre</option>
+    <% @genres.each do |genre| %>
+    <option value="<%= genre.id %>"><%= genre.name %></option>
+    <% end %>
+  </select><br>
+
   <select id="record-label" name="record_label_id" >
     <option disabled>Choose Record Label</option>
     <% @record_labels.each do |label| %>
-    <option value="<%= label.id %>" <%="selected" if label.id == @product.record_label_id %>><%= label.name %></option>
+    <option value="<%= label.id %>"
+      <%="selected" if label.id == @product.record_label_id %>>
+      <%= label.name %>
+    </option>
     <% end %>
   </select><br>
 

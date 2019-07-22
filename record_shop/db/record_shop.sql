@@ -2,10 +2,16 @@ DROP TABLE IF EXISTS products;
 DROP TABLE IF EXISTS record_labels;
 DROP TABLE IF EXISTS years;
 DROP TABLE IF EXISTS formats;
+DROP TABLE IF EXISTS genres;
 
 CREATE TABLE formats(
   id SERIAL4 PRIMARY KEY,
   type VARCHAR(255)
+);
+
+CREATE TABLE genres(
+  id SERIAL4 PRIMARY KEY,
+  name VARCHAR(255)
 );
 
 CREATE TABLE years(
@@ -22,6 +28,7 @@ CREATE TABLE products(
   id SERIAL4 PRIMARY KEY,
   artist VARCHAR(255),
   title VARCHAR(255),
+  genre_id VARCHAR(255),
   quantity INT4,
   cost_price DECIMAL(5,2),
   retail_price DECIMAL(5,2),

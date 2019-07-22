@@ -2,6 +2,7 @@
   <tr>
     <th>Artist</th>
     <th>Title</th>
+    <th>Genre</th>
     <th>Record Label</th>
     <th>Year</th>
     <th>Format</th>
@@ -17,7 +18,8 @@
   <tr>
     <td><%= product.artist %></td>
     <td><%= product.title %></td>
-    <td><%= product.record_label.name %></td>
+    <td><%= product.genre.name %></td>
+    <td><a href="/record-labels/<%= product.record_label_id %>/show"><%= product.record_label.name %></a></td>
     <td><%= product.year.year %></td>
     <td><%= product.format.type %></td>
     <td><%= product.cost_price %></td>
