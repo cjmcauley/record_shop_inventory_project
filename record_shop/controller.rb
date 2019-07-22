@@ -81,3 +81,8 @@ end
    record_label.update()
    redirect '/record-labels'
  end
+#SHOW BY LABEL
+ get '/record-labels/:id/show' do
+   @products = Product.find_label(params[:id])
+   erb(:show_label)
+ end
