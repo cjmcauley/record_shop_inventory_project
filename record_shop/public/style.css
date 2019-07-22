@@ -1,0 +1,92 @@
+body {
+  background-color: #fdfefe;
+  font-family: input-mono, sans-serif;
+}
+a.menu-head {
+  color: #fdfefe;
+  text-decoration: none;
+  font-family: neue-haas-grotesk-display, sans-serif;
+  font-size: 18px;
+}
+a.menu {
+  color: #fdfefe;
+  text-decoration: none;
+  font-family: neue-haas-grotesk-display, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 16px;
+}
+a.table {
+  color: #000000;
+  text-decoration: underline;
+  text-decoration-color: #ffaa33;
+}
+a.table:hover {
+  background-color: #ffaa33;
+}
+div.header {
+  background-color: #ffaa33;
+  padding: 25px;
+  height: 100px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+div.shopname {
+  color: #fdfefe;
+}
+hr {
+  height: 3px;
+  color: #ffaa33;
+  background-color: #ffaa33;
+  border: none;
+}
+h1.header{
+  font-family: bookmania, serif;
+  padding-left: 2px;
+  align-items: center;
+  font-size: 40px;
+}
+img.logo{
+  width: 100px;
+  float: left;
+}
+table.menu {
+  margin-left: auto;
+  margin-right: 0;
+  text-align: left;
+  text-decoration: none;
+}
+table {
+  font-size: 13px;
+  padding: 4px;
+  text-align: left;
+}
+th, td {
+  padding: 5px;
+}
+th, td.menu {
+  padding-left: 5px;
+}
+td.warning {
+  color: red;
+  text-decoration: underline;
+  font-style: italic;
+}
+td.center{
+  text-align: center;
+}
+th.body {
+  font-family: neue-haas-grotesk-display, sans-serif;
+  font-size: 14px;
+}
+.button {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}

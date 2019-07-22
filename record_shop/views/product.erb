@@ -1,15 +1,15 @@
 <table class="flex-item">
   <tr>
-    <th>Artist</th>
-    <th>Title</th>
-    <th>Genre</th>
-    <th>Record Label</th>
-    <th>Year</th>
-    <th>Format</th>
-    <th>Cost Price</th>
-    <th>Retail Price</th>
-    <th>Mark Up</th>
-    <th>Quantity</th>
+    <th class="body">Artist</th>
+    <th class="body">Title</th>
+    <th class="body">Genre</th>
+    <th class="body">Record Label</th>
+    <th class="body">Year</th>
+    <th class="body">Format</th>
+    <th class="body">Cost Price</th>
+    <th class="body">Retail Price</th>
+    <th class="body">Mark Up</th>
+    <th class="body">Quantity</th>
     <th></th>
     <th></th>
     <th></th>
@@ -18,15 +18,15 @@
   <tr>
     <td><%= product.artist %></td>
     <td><%= product.title %></td>
-    <td><a href="/genres/<%= product.genre_id %>/show"><%= product.genre.name %></td>
-      <td><a href="/record-labels/<%= product.record_label_id %>/show"><%= product.record_label.name %></a></td>
+    <td><a class="table" href="/genres/<%= product.genre_id %>/show"><%= product.genre.name %></td>
+      <td><a class="table" href="/record-labels/<%= product.record_label_id %>/show"><%= product.record_label.name %></a></td>
       <td><%= product.year.year %></td>
       <td><%= product.format.type %></td>
-      <td><%= product.cost_price %></td>
-      <td><%= product.retail_price %></td>
-      <td><%= (((product.retail_price) - (product.cost_price)) / (product.cost_price) * 100).round(2) %>%</td>
-      <td><%= product.quantity %></td>
-      <td><% if product.quantity == 0 %>
+      <td class="center"><%= "%.2f" % product.cost_price %></td>
+      <td class="center"><%= "%.2f" % product.retail_price %></td>
+      <td class="center"><%= "%.2f" % (((product.retail_price) - (product.cost_price)) / (product.cost_price) * 100).round(2) %>%</td>
+      <td class="center"><%= product.quantity %></td>
+      <td class="warning"><% if product.quantity == 0 %>
         out of stock
         <% elsif product.quantity <= 5 %>
         low stock

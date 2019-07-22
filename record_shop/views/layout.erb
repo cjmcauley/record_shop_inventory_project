@@ -1,20 +1,35 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>Record Shop</title>
-  </head>
-  <body>
-    <div class="header">
-      <ul>
-        <li><a href="/products">All Products</a></li>
-        <li><a href="/record-labels">All Record Labels</a></li>
-        <li><a href="/genres">All Genres</a></li>
-        <li><a href="/products/new">Add Product</a></li>
-        <li><a href="/record-labels/new">Add Record Label</a></li>
-        <li><a href="/genres/new">Add Genre</a></li>
-      </ul>
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" type="text/css" href="style.css"/>
+  <link rel="stylesheet" href="https://use.typekit.net/jrs8cph.css">
+  <title>Record Shop</title>
+</head>
+<body>
+  <div class="header">
+    <div class="logo">
+      <img class="logo" src="https://www.hastingsindependentpress.co.uk/wp-content/uploads/2018/05/record.jpg" alt="logo">
     </div>
-      <%= yield %>
-  </body>
+    <div class="shopname">
+      <h1 class="header">Basement Records</h1>
+    </div>
+    <div class="menuheader">
+      <table class="menu">
+        <tr>
+          <th class="menu"><a class="menu-head" href="/products">All Albums</a></th>
+          <th class="menu"><a class="menu-head" href="/record-labels">Record Labels</a></th>
+          <th class="menu"><a class="menu-head" href="/genres">Genres</a></th>
+        </tr>
+        <tr>
+          <td class="menu"><a class="menu" href="/products/new">Add</a></td>
+          <td class="menu"><a class="menu" href="/record-labels/new">Add</a></td>
+          <td class="menu"><a class="menu" href="/genres/new">Add</a></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <hr>
+  <%= yield %>
+</body>
 </html>
