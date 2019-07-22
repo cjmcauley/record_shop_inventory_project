@@ -41,7 +41,7 @@
       SqlRunner.run( sql, values )
     end
 
-    def record_label
+    def record_label()
       sql = '
       SELECT * FROM record_labels
       WHERE id = $1'
@@ -49,7 +49,7 @@
       return RecordLabel.new(results.first)
     end
 
-    def year
+    def year()
       sql = '
       SELECT * FROM years
       WHERE id = $1'
@@ -57,7 +57,7 @@
       return Year.new(results.first)
     end
 
-    def format
+    def format()
       sql = '
       SELECT * FROM formats
       WHERE id = $1'
@@ -69,8 +69,8 @@
       sql = "SELECT * FROM products
       WHERE id = $1"
       values = [id]
-      products = SqlRunner.run( sql, values )
-      result = Product.new( products.first ) 
+      product = SqlRunner.run( sql, values )
+      result = Product.new( product.first )
       return result
     end
 

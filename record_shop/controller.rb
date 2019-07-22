@@ -29,8 +29,8 @@ get '/record-labels/new' do
 end
 #SHOW
 get '/products/:id' do
-  @products = Product.find( params[:id] )
-  erb( :show )
+  @product = Product.find(params[:id])
+  erb(:show)
 end
 #CREATE
 post '/products' do
@@ -53,7 +53,7 @@ end
 #DELETE
 post '/record-labels/:id/delete' do
   record_label = RecordLabel.find(params[:id])
-  record_label.delete
+  record_label.delete()
   redirect '/record-labels'
 end
 #EDIT
