@@ -18,25 +18,25 @@
   <tr>
     <td><%= product.artist %></td>
     <td><%= product.title %></td>
-    <td><%= product.genre.name %></td>
-    <td><a href="/record-labels/<%= product.record_label_id %>/show"><%= product.record_label.name %></a></td>
-    <td><%= product.year.year %></td>
-    <td><%= product.format.type %></td>
-    <td><%= product.cost_price %></td>
-    <td><%= product.retail_price %></td>
-    <td><%= (((product.retail_price) - (product.cost_price)) / (product.cost_price) * 100).round(2) %>%</td>
-    <td><%= product.quantity %></td>
-    <td><% if product.quantity == 0 %>
-      out of stock
-      <% elsif product.quantity <= 5 %>
-      low stock
-      <% else %>
-      <% end %>
+    <td><a href="/genres/<%= product.genre_id %>/show"><%= product.genre.name %></td>
+      <td><a href="/record-labels/<%= product.record_label_id %>/show"><%= product.record_label.name %></a></td>
+      <td><%= product.year.year %></td>
+      <td><%= product.format.type %></td>
+      <td><%= product.cost_price %></td>
+      <td><%= product.retail_price %></td>
+      <td><%= (((product.retail_price) - (product.cost_price)) / (product.cost_price) * 100).round(2) %>%</td>
+      <td><%= product.quantity %></td>
+      <td><% if product.quantity == 0 %>
+        out of stock
+        <% elsif product.quantity <= 5 %>
+        low stock
+        <% else %>
+        <% end %>
+      </td>
+      <td><form action="/products/<%= product.id %>/edit" method="get">
+        <input type="submit" value="Edit">
+      </form>
     </td>
-    <td><form action="/products/<%= product.id %>/edit" method="get">
-      <input type="submit" value="Edit">
-    </form>
-  </td>
     <td>
       <form action="/products/<%= product.id %>/delete" method="post">
         <input type="submit" value="Delete">

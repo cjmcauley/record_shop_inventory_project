@@ -1,0 +1,18 @@
+<table class="flex-item">
+  <tr>
+    <th>Genres</th>
+    <th></th>
+    <th></th>
+  </tr>
+  <% @genres.each do |genre| %>
+  <tr>
+    <td><%= genre.name %></td>
+    <td><form action="/genres/<%= genre.id %>/edit" method="get">
+      <input type="submit" value="Edit">
+    </form></td>
+    <td><form action="/genres/<%= genre.id %>/show" method="get">
+      <input type="submit" value="Show All">
+    </form></td>
+  </tr>
+  <% end %>
+</table>

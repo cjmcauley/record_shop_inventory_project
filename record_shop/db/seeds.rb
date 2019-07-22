@@ -27,10 +27,6 @@ indie_rock = Genre.new(
 )
 indie_rock.save
 
-# (2000..2019).each do |i|
-#   result = Year.new('year' => i.to_i).save
-# end
-
 year2019 = Year.new(
   'year' => 2019
 )

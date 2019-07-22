@@ -1,5 +1,6 @@
 require 'sinatra'
 require 'sinatra/reloader'
+require 'pry'
 require_relative './models/product'
 require_relative './models/format'
 require_relative './models/year'
@@ -9,7 +10,6 @@ also_reload './models/*'
 
 #INDEX
 get '/products' do
-  @genres = Genre.all()
   @products = Product.all()
   erb(:product)
 end
@@ -17,6 +17,11 @@ end
 get '/record-labels' do
   @record_labels = RecordLabel.all()
   erb(:record_label)
+end
+#INDEX
+get '/genres' do
+  @genres = Genre.all()
+  erb(:genre)
 end
 #NEW
 get '/products/new' do
@@ -29,6 +34,10 @@ end
 #NEW
 get '/record-labels/new' do
   erb(:new_label)
+end
+#NEW
+get '/genres/new' do
+  erb(:new_genre)
 end
 #SHOW
 get '/products/:id' do
@@ -45,13 +54,25 @@ end
 post '/record-labels' do
   @record_label = RecordLabel.new(params)
   @record_label.save()
-  redirect '/record-labels'
+  redirect '/products'
+end
+#CREATE
+post '/genres' do
+  @genre = Genre.new(params)
+  @genre.save()
+  redirect '/products'
 end
 #DELETE
 post '/products/:id/delete' do
   product = Product.find(params[:id])
   product.delete()
   redirect '/products'
+end
+#DELETE
+post '/genres/:id/delete' do
+  genre = Genre.find(params[:id])
+  genre.delete()
+  redirect '/genres'
 end
 #DELETE
 post '/record-labels/:id/delete' do
@@ -73,6 +94,11 @@ end
    @record_label = RecordLabel.find(params[:id])
    erb(:edit_label)
  end
+#EDIT
+ get '/genres/:id/edit' do
+   @genre = Genre.find(params[:id])
+   erb(:edit_genre)
+ end
 #UPDATE
  post '/products/:id' do
    product = Product.new(params)
@@ -85,8 +111,19 @@ end
    record_label.update()
    redirect '/record-labels'
  end
+#UPDATE
+ post '/genres/:id' do
+   genre = Genre.new(params)
+   genre.update()
+   redirect '/genres'
+ end
 #SHOW BY LABEL
  get '/record-labels/:id/show' do
    @products = Product.find_label(params[:id])
    erb(:show_label)
+ end
+#SHOW BY GENRE
+ get '/genres/:id/show' do
+   @products = Product.find_genre(params[:id])
+   erb(:show_genre)
  end

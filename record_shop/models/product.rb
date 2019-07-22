@@ -112,4 +112,13 @@ class Product
     return result
   end
 
+  def self.find_genre( id )
+    sql = "SELECT * FROM products
+    WHERE genre_id = $1"
+    values = [id]
+    products = SqlRunner.run( sql, values )
+    result = products.map { |product| Product.new( product ) }
+    return result
+  end
+
 end

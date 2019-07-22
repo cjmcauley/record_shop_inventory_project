@@ -45,7 +45,7 @@ class Genre
   end
 
   def self.find( id )
-    sql = 'SELECT * FROM genre
+    sql = 'SELECT * FROM genres
     WHERE id = $1'
     values = [id]
     genres = SqlRunner.run( sql, values )
