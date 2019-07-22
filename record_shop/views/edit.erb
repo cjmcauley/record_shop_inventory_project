@@ -8,6 +8,7 @@
   <input id="title" type="text" name="title" value="<%= @product.title %>" required>
   <br>
 
+  <label for="genre">Genre</label>
   <select id="genre" name="genre_id">
     <% @genres.each do |genre| %>
     <% %>
@@ -15,6 +16,7 @@
     <% end %>
   </select><br>
 
+  <label for="record-label">Record Label</label>
   <select id="record-label" name="record_label_id" >
     <% @record_labels.each do |label| %>
     <option value="<%= label.id %>"
@@ -24,14 +26,15 @@
     <% end %>
   </select><br>
 
+  <label for="year">Year</label>
   <select id="year" name="year_id">
     <% @years.each do |year| %>
     <option value="<%= year.id %>" <%="selected" if year.id == @product.year_id %>><%= year.year %></option>
     <% end %>
   </select><br>
 
+  <label for="format">Format</label>
   <select id="format" name="format_id">
-    <option selected disabled>Choose Format</option>
     <% @formats.each do |format| %>
     <option value="<%= format.id %>" <%="selected" if format.id == @product.format_id %>><%= format.type %></option>
     <% end %>

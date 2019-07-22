@@ -5,29 +5,29 @@
   <label for="title">Title</label>
   <input id="title" type="text" name="title" required><br>
 
+  <label for="genre">Genre</label>
   <select id="genre" name="genre_id" required>
-    <option selected disabled>Choose Genre</option>
     <% @genres.each do |genre| %>
     <option value="<%= genre.id %>"><%= genre.name %></option>
     <% end %>
   </select><br>
 
+  <label for="record-label">Record Label</label>
   <select id="record-label" name="record_label_id" required>
-    <option selected disabled>Choose Record Label</option>
     <% @record_labels.each do |label| %>
     <option value="<%= label.id %>"><%= label.name %></option>
     <% end %>
   </select><br>
 
+  <label for="year">Year</label>
   <select id="year" name="year_id" required>
-    <option selected disabled>Choose Year of Release</option>
     <% @years.each do |year| %>
     <option value="<%= year.id %>"><%= year.year %></option>
     <% end %>
   </select><br>
 
+  <label for="format">Format</label>
   <select id="format" name="format_id" required>
-    <option selected disabled>Choose Format</option>
     <% @formats.each do |format| %>
     <option value="<%= format.id %>"><%= format.type %></option>
     <% end %>
