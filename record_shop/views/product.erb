@@ -31,6 +31,7 @@
         <% elsif product.quantity <= 5 %>
         low stock
         <% else %>
+        -
         <% end %>
       </td>
       <td><form action="/products/<%= product.id %>/edit" method="get">
@@ -68,10 +69,48 @@
         <th scope="row">Genre</th>
         <td><a class="table" href="/genres/<%= product.genre_id %>/show"><%= product.genre.name %></td>
       </tr>
+      <tr>
+        <th scope="row">Record Label</th>
+        <td><a class="table" href="/record-labels/<%= product.record_label_id %>/show"><%= product.record_label.name %></a></td>
+      </tr>
+      <tr>
+        <th scope="row">Year</th>
+        <td><%= product.year.year %></td>
+      </tr>
+      <tr>
+        <th scope="row">Format</th>
+        <td><%= product.format.type %></td>
+      </tr>
+      <tr>
+        <th scope="row">Cost Price</th>
+        <td><%= "%.2f" % product.cost_price %></td>
+      </tr>
+      <tr>
+        <th scope="row">Retail Price</th>
+        <td><%= "%.2f" % product.retail_price %></td>
+      </tr>
     </table>
   </div>
   <div class="details-buttons">
-
+    <table>
+    <tr>
+      <th scope="row">Mark Up</th>
+      <td><%= "%.2f" % (((product.retail_price) - (product.cost_price)) / (product.cost_price) * 100).round(2) %>%</td>
+    </tr>
+    <tr>
+      <th scope="row">Quantity</th>
+      <td><%= "%.2f" % product.quantity %></td>
+    </tr>
+    <tr>
+      <th scope="row">Stock Warning?</th>
+      <td class="warning"><% if product.quantity == 0 %>
+        out of stock
+        <% elsif product.quantity <= 5 %>
+        low stock
+        <% else %>
+        <% end %></td>
+    </tr>
+  </table>
   </div>
 </div>
 <% end %>
