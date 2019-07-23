@@ -35,6 +35,7 @@ div.header {
 div.container{
   display: flex;
   padding-right: 20px;
+  width: 45%;
 }
 div.homepage{
   display: flex;
@@ -80,9 +81,15 @@ table {
   text-align: left;
   padding-left: 5px;
 }
+table.products{
+  width: 250px;
+}
+table.products-second{
+  width: 150px;
+}
 th, td {
-  padding-bottom: 5px;
-  font-size: 12px;
+  padding-bottom: 3px;
+  font-size: 11px;
 }
 th, td.menu {
   padding-left: 5px;
@@ -99,13 +106,12 @@ th.body {
   font-family: neue-haas-grotesk-display, sans-serif;
   font-size: 14px;
 }
-.button {
-  background-color: #4CAF50; /* Green */
-  border: none;
-  color: white;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
+input[type=submit]{
+  font-family: input-mono, sans-serif;
+  color: #fdfefe;
+  background-color: #ffaa33;
+  width: 150px;
+}
+input[type=submit][value=Delete]{
+  background-color: red;
 }
