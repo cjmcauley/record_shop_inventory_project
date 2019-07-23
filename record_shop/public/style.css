@@ -124,3 +124,6 @@ input[type=submit][value=Delete]{
 input[type=submit][value=Back]{
   background-color: #00a962;
 }
+input[type=text]{
+  font-family: input-mono, sans-serif;
+}
