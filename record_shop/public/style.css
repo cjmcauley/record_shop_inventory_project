@@ -27,10 +27,10 @@ a.table:hover {
 div.header {
   background-color: #ffaa33;
   padding: 25px;
-  height: 100px;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  align-items: center;
 }
 div.shopname {
   color: #fdfefe;
@@ -45,11 +45,14 @@ h1.header{
   font-family: bookmania, serif;
   padding-left: 2px;
   align-items: center;
-  font-size: 40px;
+  font-size: 50px;
 }
 img.logo{
-  width: 100px;
+  width: 125px;
   float: left;
+}
+img.homepage-img{
+  width: 125px;
 }
 table.menu {
   margin-left: auto;
