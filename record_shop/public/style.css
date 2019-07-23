@@ -4,19 +4,26 @@ body {
 }
 a.menu-head {
   color: #fdfefe;
-  font-family: neue-haas-grotesk-display, sans-serif;
-  font-size: 18px;
+  font-family: input-mono, monospace;
+  font-size: 16px;
   border-bottom: 2px solid #ffaa33;
   text-decoration: none;
 }
 a.menu {
   color: #fdfefe;
-  font-family: neue-haas-grotesk-display, sans-serif;
-  font-weight: 400;
   font-style: normal;
   font-size: 16px;
   text-decoration: none;
   border-bottom: 2px solid #ffaa33;
+  font-family: input-mono, monospace;
+  font-weight: 400;
+}
+a.menu:hover{
+  font-style: italic;
+  background-color: #ffaa33;
+}
+a.menu-head:hover{
+  background-color: #ffaa33;
 }
 a.table {
   color: #000000;
@@ -55,12 +62,12 @@ hr {
 }
 hr.divider {
   height: 1px;
-  color: #919fa1;
-  background-color: #919fa1;
+  color: #ffaa33;
+  background-color: #ffaa33;
   border: none;
 }
 h1.header{
-  font-family: neue-haas-grotesk-display, sans-serif;
+  font-family: input-mono, monospace;
   padding-left: 2px;
   align-items: center;
   font-size: 30px;
@@ -126,7 +133,7 @@ input[type=submit]{
   font-family: input-mono, sans-serif;
   color: #fdfefe;
   background-color: #ffaa33;
-  width: 150px;
+  width: 110px;
 }
 input[type=submit][value=Delete]{
   background-color: #ff4433;

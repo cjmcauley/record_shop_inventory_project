@@ -47,12 +47,13 @@
             <td><%= @product.quantity %></td>
           </tr>
           <tr>
-            <th scope="row">Stock Warning?</th>
-            <td class="warning"><% if @product.quantity == 0 %>
-              out of stock
+            <th scope="row">Stock Level</th>
+            <% if @product.quantity == 0 %>
+              <td class="warning">out of stock</td>
               <% elsif @product.quantity <= 5 %>
-              low stock
+              <td class="low">low stock</td>
               <% else %>
+              <td class="in-stock">in stock
               <% end %></td>
             </tr>
         </table>
@@ -60,12 +61,12 @@
       <div class="details-buttons">
         <table class="products-second">
             <tr>
-              <td colspan="2"><form action="/products/<%= @product.id %>/edit" method="get">
+              <td><form action="/products/<%= @product.id %>/edit" method="get">
                 <input type="submit" value="Edit">
               </form></td>
             </tr>
             <tr>
-              <td colspan="2"><form action="/products/<%= @product.id %>/delete" method="post">
+              <td><form action="/products/<%= @product.id %>/delete" method="post">
                 <input type="submit" value="Delete">
               </form></td>
             </tr>

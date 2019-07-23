@@ -22,17 +22,17 @@
     <td><a class="table" href="/record-labels/<%= product.record_label_id %>/show"><%= product.record_label.name %></a></td>
     <td><%= product.year.year %></td>
     <td><%= product.format.type %></td>
-    <td><%= product.cost_price %></td>
-    <td><%= product.retail_price %></td>
+    <td class="center">£<%= "%.2f" % product.cost_price %></td>
+    <td class="center">£<%= "%.2f" % product.retail_price %></td>
     <td><%= (((product.retail_price) - (product.cost_price)) / (product.cost_price) * 100).round(2) %>%</td>
-    <td><%= product.quantity %></td>
-    <td><% if product.quantity == 0 %>
-      out of stock
+    <td class="center"><%= product.quantity %></td>
+    <% if product.quantity == 0 %>
+      <td class="warning">out of stock</td>
       <% elsif product.quantity <= 5 %>
-      low stock
+      <td class="low">low stock</td>
       <% else %>
-      <% end %>
-    </td>
+      <td class="in-stock">in stock
+      <% end %></td>
     <td><form action="/products/<%= product.id %>/edit" method="get">
       <input type="submit" value="Edit">
     </form>
