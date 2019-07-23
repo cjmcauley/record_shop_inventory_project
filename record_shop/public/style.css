@@ -25,7 +25,7 @@ a.table:hover {
   background-color: #ffaa33;
 }
 div.header {
-  background-color: #ffaa33;
+  background-color: #919fa1;
   padding: 25px;
   display: flex;
   flex-wrap: wrap;
@@ -47,14 +47,14 @@ div.shopname {
 }
 hr {
   height: 3px;
-  color: #ffaa33;
-  background-color: #ffaa33;
+  color: #919fa1;
+  background-color: #919fa1;
   border: none;
 }
 hr.divider {
   height: 1px;
-  color: #ffaa33;
-  background-color: #ffaa33;
+  color: #919fa1;
+  background-color: #919fa1;
   border: none;
 }
 h1.header{
@@ -69,6 +69,9 @@ img.logo{
 }
 img.homepage-img{
   width: 175px;
+}
+img.details-img{
+  width: 250px;
 }
 table.menu {
   margin-left: auto;
@@ -101,6 +104,9 @@ td.warning {
 }
 td.center{
   text-align: center;
+}
+td.italic{
+  font-style: italic;
 }
 th.body {
   font-family: neue-haas-grotesk-display, sans-serif;
