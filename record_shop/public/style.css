@@ -58,10 +58,10 @@ hr.divider {
   border: none;
 }
 h1.header{
-  font-family: bookmania, serif;
+  font-family: neue-haas-grotesk-display, sans-serif;
   padding-left: 2px;
   align-items: center;
-  font-size: 50px;
+  font-size: 30px;
 }
 img.logo{
   width: 125px;
@@ -113,5 +113,8 @@ input[type=submit]{
   width: 150px;
 }
 input[type=submit][value=Delete]{
-  background-color: red;
+  background-color: #ff4433;
+}
+input[type=submit][value=Back]{
+  background-color: #00a962;
 }

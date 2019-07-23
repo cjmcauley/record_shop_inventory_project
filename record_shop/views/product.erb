@@ -67,13 +67,13 @@
       </form></td>
     </tr>
     <tr>
-      <td colspan="2"><form action="/products/<%= product.id %>/delete" method="post">
-        <input type="submit" value="Delete">
+      <td colspan="2"><form action="/products/<%= product.id %>" method="get">
+        <input type="submit" value="Details">
       </form></td>
     </tr>
     <tr>
-      <td colspan="2"><form action="/products/<%= product.id %>" method="get">
-        <input type="submit" value="Details">
+      <td colspan="2"><form action="/products/<%= product.id %>/delete" method="post">
+        <input type="submit" value="Delete">
       </form></td>
     </tr>
   </table>
