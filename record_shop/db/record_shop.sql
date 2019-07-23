@@ -32,7 +32,7 @@ CREATE TABLE products(
   quantity INT4,
   cost_price DECIMAL(5,2),
   retail_price DECIMAL(5,2),
-  img_url VARCHAR(255),
+  img_url TEXT,
   record_label_id INT4 REFERENCES record_labels (id),
   year_id INT4 REFERENCES years (id),
   format_id INT4 REFERENCES formats (id)
