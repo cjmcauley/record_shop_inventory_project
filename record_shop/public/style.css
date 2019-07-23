@@ -20,7 +20,7 @@ a.menu {
 }
 a.table {
   color: #000000;
-  text-decoration: underline
+  text-decoration: underline;
   text-decoration-color: #ffaa33;
 }
 a.table:hover {
@@ -64,9 +64,8 @@ h1.header{
   padding-left: 2px;
   align-items: center;
   font-size: 30px;
-  text-decoration: underline;
-  text-decoration-style: wavy;
-  text-decoration-color: #ffaa33;
+  border-bottom: 3px solid #ffaa33;
+  text-decoration: none;
 }
 img.logo{
   width: 125px;
