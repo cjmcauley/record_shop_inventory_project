@@ -1,3 +1,5 @@
+<div class="form">
+
 <form action="/products/<%= @product.id %>" method="post" autocomplete="off">
 
   <label for="artist">Artist</label>
@@ -8,7 +10,7 @@
   <input id="title" type="text" name="title" value="<%= @product.title %>" required>
   <br>
 
-  <label for="genre">Genre</label>
+  <label for="genre">Genre</label><br>
   <select id="genre" name="genre_id">
     <% @genres.each do |genre| %>
     <% %>
@@ -16,7 +18,7 @@
     <% end %>
   </select><br>
 
-  <label for="record-label">Record Label</label>
+  <label for="record-label">Record Label</label><br>
   <select id="record-label" name="record_label_id" >
     <% @record_labels.each do |label| %>
     <option value="<%= label.id %>"
@@ -26,14 +28,14 @@
     <% end %>
   </select><br>
 
-  <label for="year">Year</label>
+  <label for="year">Year</label><br>
   <select id="year" name="year_id">
     <% @years.each do |year| %>
     <option value="<%= year.id %>" <%="selected" if year.id == @product.year_id %>><%= year.year %></option>
     <% end %>
   </select><br>
 
-  <label for="format">Format</label>
+  <label for="format">Format</label><br>
   <select id="format" name="format_id">
     <% @formats.each do |format| %>
     <option value="<%= format.id %>" <%="selected" if format.id == @product.format_id %>><%= format.type %></option>
@@ -54,3 +56,5 @@
 
   <input type="submit" value="Save Changes">
 </form>
+
+</div>
