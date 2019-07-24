@@ -76,6 +76,15 @@ h1.header{
 }
 h2{
   font-family: input-mono, monospace;
+  margin-bottom: 5px;
+}
+p{
+  font-size: 12px;
+  margin-top: 0;
+}
+em{
+  text-decoration: underline;
+  text-decoration-color: #ffaa33;
 }
 img.logo{
   width: 125px;
