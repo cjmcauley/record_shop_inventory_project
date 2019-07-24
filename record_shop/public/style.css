@@ -74,6 +74,9 @@ h1.header{
   border-bottom: 3px solid #ffaa33;
   text-decoration: none;
 }
+h2{
+  font-family: input-mono, monospace;
+}
 img.logo{
   width: 125px;
   float: left;
