@@ -120,10 +120,12 @@ end
 #SHOW BY LABEL
  get '/record-labels/:id/show' do
    @products = Product.find_label(params[:id])
+   @record_label = RecordLabel.find(params[:id])
    erb(:show_label)
  end
 #SHOW BY GENRE
  get '/genres/:id/show' do
    @products = Product.find_genre(params[:id])
+   @genre = Genre.find(params[:id])
    erb(:show_genre)
  end
