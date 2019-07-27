@@ -121,4 +121,10 @@ class Product
     return result
   end
 
+  def self.markup( )
+    markup = "%.2f" % (((@retail_price) - (@cost_price)) / (@cost_price) * 100).round(2)
+    markup_percentage = "#{markup}%"
+    return markup_percentage
+  end
+
 end

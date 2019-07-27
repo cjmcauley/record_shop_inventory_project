@@ -48,7 +48,7 @@
     <table class="products-second">
     <tr>
       <th scope="row">Mark Up</th>
-      <td><%= "%.2f" % (((product.retail_price) - (product.cost_price)) / (product.cost_price) * 100).round(2) %>%</td>
+      <td><%= product.markup %></td>
     </tr>
     <tr>
       <th scope="row">Quantity</th>
