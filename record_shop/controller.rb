@@ -7,3 +7,7 @@ require_relative './models/year'
 require_relative './models/record_label'
 require_relative './models/genre'
 also_reload './models/*'
+
+get '/' do
+  erb( :index )
+end

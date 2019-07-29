@@ -27,7 +27,7 @@
     <td><%= product.format.type %></td>
     <td class="center">£<%= "%.2f" % product.cost_price %></td>
     <td class="center">£<%= "%.2f" % product.retail_price %></td>
-    <td><%= (((product.retail_price) - (product.cost_price)) / (product.cost_price) * 100).round(2) %>%</td>
+    <td><%= product.markup %></td>
     <td class="center"><%= product.quantity %></td>
     <% if product.quantity == 0 %>
       <td class="warning">out of stock</td>

@@ -26,6 +26,7 @@ end
 #SHOW
 get '/products/:id' do
   @product = Product.find(params[:id])
+  @product.markup(params[:id])
   erb(:"products/show")
 end
 

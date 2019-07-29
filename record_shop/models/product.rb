@@ -6,7 +6,7 @@ require_relative 'genre'
 
 class Product
   attr_reader :id
-  attr_accessor :artist, :title, :genre_id, :quantity, :cost_price, :retail_price, :img_url, :record_label_id, :year_id, :format_id
+  attr_accessor :artist, :title, :genre_id, :quantity, :cost_price, :retail_price, :markup, :img_url, :record_label_id, :year_id, :format_id
 
   def initialize(options)
     @id = options['id'].to_i if options['id']
@@ -121,10 +121,10 @@ class Product
     return result
   end
 
-  def self.markup( )
-    markup = "%.2f" % (((@retail_price) - (@cost_price)) / (@cost_price) * 100).round(2)
-    markup_percentage = "#{markup}%"
-    return markup_percentage
-  end
+    def markup
+      markup = "%.2f" % (((@retail_price) - (@cost_price)) / (@cost_price) * 100).round(2)
+      markup_percentage = "#{markup}%"
+      return markup_percentage
+    end
 
 end
